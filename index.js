@@ -22,7 +22,7 @@
     // By chain called
     fetchSource.then( ( request ) => {
         console.log('The file save as ./temp');
-    } ).catch( e => console.log );
+    } ).catch( e => console.log(e) );
     
     
     // By async/await
