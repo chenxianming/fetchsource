@@ -12,7 +12,7 @@
     let fetchSource = new Fetch({
         url:fetchUrl,
         timeout: 6000,
-        output: './temp',
+        output: './temp', // not a directory, be attentioned
         onProgress(len, cur, tol) {
             console.log( ~~( cur / tol * 100 ) + '%' );
             console.log( len, cur, tol );
@@ -95,6 +95,7 @@ class Fetch {
         }));
         
         // abort each request when over time
+        // i don't recommend used Promise.race method, cause u can never finished redirect url at 6ms
         clearTimeout(this.timmer);
         this.timmer = setTimeout(() => {
             if (!self.isFetch) {
